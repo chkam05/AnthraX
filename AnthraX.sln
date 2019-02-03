@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnthraX", "AnthraX\AnthraX.csproj", "{FD7A4DE0-5381-4EAF-8985-7397A3817EEE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD7A4DE0-5381-4EAF-8985-7397A3817EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD7A4DE0-5381-4EAF-8985-7397A3817EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD7A4DE0-5381-4EAF-8985-7397A3817EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD7A4DE0-5381-4EAF-8985-7397A3817EEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {831682C7-7975-40A8-9D7C-E810194E95A3}
+	EndGlobalSection
+EndGlobal

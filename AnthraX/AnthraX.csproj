@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD7A4DE0-5381-4EAF-8985-7397A3817EEE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AnthraX</RootNamespace>
+    <AssemblyName>AnthraX</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.10.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ProgramIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bass.Net">
+      <HintPath>..\..\..\C#\_LIBRARIES\Bass.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="policy.2.0.taglib-sharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\taglib.2.1.0.0\lib\policy.2.0.taglib-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="taglib-sharp, Version=2.1.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\taglib.2.1.0.0\lib\taglib-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationVolume.cs" />
+    <Compile Include="DataStructures\CustomFile.cs" />
+    <Compile Include="DataStructures\CustomFileMetadata.cs" />
+    <Compile Include="DataStructures\CustomPlayList.cs" />
+    <Compile Include="DataStructures\RainbowColor.cs" />
+    <Compile Include="FormAnthraX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnthraX.Designer.cs">
+      <DependentUpon>FormAnthraX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IconsControl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IconsControl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="IconsMenu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IconsMenu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="IconsNavigation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IconsNavigation.resx</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceDrawer.cs" />
+    <Compile Include="Libraries\FilesManager.cs" />
+    <Compile Include="Libraries\ImageTools.cs" />
+    <Compile Include="Libraries\SoundModule.cs" />
+    <Compile Include="Libraries\PagesManager.cs" />
+    <Compile Include="MessageBoxes\CustomMessageDualBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxes\CustomMessageDualBox.Designer.cs">
+      <DependentUpon>CustomMessageDualBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxes\CustomMessageDualInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxes\CustomMessageDualInput.Designer.cs">
+      <DependentUpon>CustomMessageDualInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxes\CustomMessageInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxes\CustomMessageInputBox.Designer.cs">
+      <DependentUpon>CustomMessageInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxes\CustomMessageComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBoxes\CustomMessageComboBox.Designer.cs">
+      <DependentUpon>CustomMessageComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessMessages.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomSlider.cs" />
+    <Compile Include="Logos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Logos.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Spectrum.cs" />
+    <Compile Include="Tools.cs" />
+    <EmbeddedResource Include="FormAnthraX.resx">
+      <DependentUpon>FormAnthraX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconsControl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IconsControl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconsMenu.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IconsMenu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconsNavigation.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IconsNavigation.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxes\CustomMessageDualBox.resx">
+      <DependentUpon>CustomMessageDualBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxes\CustomMessageDualInput.resx">
+      <DependentUpon>CustomMessageDualInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxes\CustomMessageInputBox.resx">
+      <DependentUpon>CustomMessageInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBoxes\CustomMessageComboBox.resx">
+      <DependentUpon>CustomMessageComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Logos.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Logos.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="app.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\temp_bckg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\64_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_Equalizer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_Explorer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_Library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_PlayList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_Black_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_Equalizer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_Explorer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_Library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_PlayList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\48_White_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\64\64_Press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\32\32_Press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Eject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_List.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Mono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Rec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Shuffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Stereo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_Volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_VolumeDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_Black_VolumeUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Backward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Eject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Film2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_List.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Mono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Rec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Shuffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Stereo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_Volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_VolumeDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\32_White_VolumeUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\48_Active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\48_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\48\48_Press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_List.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_Mono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_Picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_Stereo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_Video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_White_List.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_White_Mono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_White_Picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_White_Stereo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_control\96\64_White_Video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_Equalizer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_Explorer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_Library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_PlayList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_Black_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_Equalizer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_Explorer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_Library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_PlayList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\32_White_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\48_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\48\48_Press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\32\24_Black_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\32\24_White_Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icons_menu\32\32_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Document-New-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Document-Save-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Document-Save-As-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Edit-Clear-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Edit-Delete-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Edit-Find-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Folder-New-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Folder-Open-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Go-Down-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Go-Home-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Go-Next-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Go-Previous-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-Go-Up-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-List-Add-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-List-Remove-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-System-Search-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\Gnome-View-Sort-Descending-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_ArrowDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_ArrowLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_ArrowRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Filder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_NewFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_NewFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_SaveAs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\48_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\48_Press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\70937_AlphaSystem_1920x1200_LicUnknown.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\87577_7rev_Random_1920x1080_LicUnknown.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\105358_darkness_2560x1600_LicUnknown.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\284301_TorinoGT_FantasyAndSciFi_1948x1096_LicUnknown.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\411175_miroha_2880x1800_LicUnknown.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX dark icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX dark theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX light icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX light theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX white icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX white theme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_MoveTo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\icon_navigation\32\32_Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX dark icon 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX dark theme 624.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX light icon 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX light theme 624.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX white icon 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\logo_Data\AnthraX white theme 624.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProgramIcon.ico" />
+    <None Include="resources\icons_menu\64\48_White_Karaoke.png" />
+    <None Include="resources\icons_menu\64\48_Black_Karaoke.png" />
+    <None Include="resources\icons_menu\48\32_White_Karaoke.png" />
+    <None Include="resources\icons_menu\48\32_Black_Karaoke.png" />
+    <None Include="resources\logo_Data\AnthraX dark full theme 624.png" />
+    <None Include="resources\logo_Data\AnthraX light full theme 624.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
